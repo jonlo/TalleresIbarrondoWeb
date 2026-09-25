@@ -1,4 +1,6 @@
-# Temporary AI concept images
+# Retired AI concept images
+
+These concepts were replaced by owner-supplied photographs on 2026-09-25. They remain in source history only and are not imported by the website. See `photo-selection.md` for the live photo selection.
 
 Generated on 2026-09-25 using the built-in imagegen tool, at the user’s request. These depict illustrative metalwork concepts, not Talleres Ibarrondo’s workshop or completed projects. Visible captions identify this distinction.
 

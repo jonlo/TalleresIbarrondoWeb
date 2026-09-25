@@ -31,23 +31,16 @@ Deployment reference: https://docs.github.com/en/pages/getting-started-with-gith
 ## Content and assets
 
 - **Logo:** put the existing logo in `public/images/logo/`, then set `logo` in `src/data/business.ts` to `/images/logo/logo.svg` (or the actual filename). The temporary text label is not a redesigned logo.
-- **Temporary images:** `src/assets/concepts/` contains user-authorized AI-generated illustrations of metalwork, not photographs of the company or completed projects. The interface labels them as concepts. Astro creates optimized responsive WebP versions at build time. Exact generation prompts and provenance are documented in `docs/concept-images.md`.
-- **Real photography:** put genuine optimized project photos in `public/images/projects/`. Keep original high-resolution files separately. Register the image path and descriptive alt text in `src/data/projects.ts`; real `image` values take priority over `conceptImage`. Remove the corresponding concept reference when replacing it. For automatic image optimization, import real photos from `src/assets/` and extend the existing Astro `Image` pattern.
-- **Projects:** edit `src/data/projects.ts`. Current records are gallery slots, not completed-project claims. Replace with verified projects and set `image`, `alt`, `title`, `category`, and optional `featured`.
+- **Real photos:** 21 selected images live in `src/assets/projects/`, copied from the six supplied folders. Astro generates responsive WebP files. The source files remain unchanged. Selection criteria and original filenames are in `docs/photo-selection.md`.
+- **Projects:** edit `src/data/projects.ts`. Import a photograph from `src/assets/projects/` and assign its `image`, `alt`, `title`, `category`, `description`, `position`, and `featured`. Optional `additionalPhotos` adds alternate views to the full-screen gallery. Use only verified work and avoid inventing locations or clients.
+- **Gallery:** `/trabajos/` supports category filters, keyboard navigation (arrows / Escape), mobile swipe and a native modal viewer. Without JavaScript, image links open optimized full photos. Service links open the matching gallery category.
+- **Earlier concepts:** AI placeholders are retired and no longer appear in the website. Their source assets and prompt documentation are retained for provenance.
 - **Services:** edit `src/data/services.ts`.
 - **Business details:** edit `src/data/business.ts`. Street address, email, opening hours, WhatsApp and founding year remain unknown and must be verified before publication. Unknown fields are omitted from the interface. The known phone is `+34946710059`.
 - **Styles:** shared responsive styles are in `src/styles/global.css`; components are in `src/components/`.
 
-Example real project record:
-
-```ts
-{ slug: 'barandilla-acero', title: 'Barandilla de acero', category: 'barandillas',
-  image: '/images/projects/barandilla-acero-01.webp',
-  alt: 'Barandilla de acero instalada en una escalera exterior', featured: true }
-```
-
 ## Before launching on the company domain
 
-Replace the logo and temporary concepts with verified photography. Confirm service descriptions with the owner and review legal business details and any required legal/privacy notices. Once real photos are supplied, add the planned gallery lightbox/filtering if useful. Quote requests currently use the contact page and click-to-call.
+Replace the temporary logo with the original company logo. Confirm service descriptions with the owner and review legal business details and any required legal/privacy notices. Quote requests currently use the contact page and click-to-call.
 
 Review the old WordPress URL inventory and configure verified redirects before replacing the old site. GitHub Pages does not provide arbitrary server-side 301 rules, so assess redirect requirements at the domain/hosting layer before the final migration. No existing URL mappings have been guessed.

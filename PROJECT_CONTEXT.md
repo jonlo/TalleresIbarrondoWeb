@@ -2,6 +2,9 @@
 
 ## Current implementation decisions (2026-09-25)
 
+- Real photos supplied: 75 reviewed, 21 selected for 18 gallery entries. The live site now uses only supplied photography; earlier AI concepts are retired. Selection and source mapping: `docs/photo-selection.md`.
+- Services now distinguish interior/exterior closures, stairs, railings and furniture; structural work includes canopies and reinforcement. Gallery includes category filters and full-image viewing.
+
 These updates supersede conflicting initial recommendations below:
 - Hosting is now GitHub Pages, repository `jonlo/TalleresIbarrondoWeb`, with automatic deployment from `main`.
 - The user explicitly approved temporary AI-generated concept images. Label these as illustrative AI concepts, never as real completed company work. Replace with verified photography when supplied.
