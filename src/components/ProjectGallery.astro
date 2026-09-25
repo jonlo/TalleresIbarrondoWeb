@@ -1,9 +1,12 @@
 ---
+import { withBase } from '../utils/paths';
+import { Image } from 'astro:assets';
 import { projects } from '../data/projects';
 import Placeholder from './Placeholder.astro';
 const { all = false } = Astro.props;
 const items = all ? projects : projects.filter(p => p.featured);
+const hasConcepts = items.some(project => !project.image && project.conceptImage);
 ---
-<section class="work-section section" aria-labelledby="work-title"><div class="container"><div class="work-heading"><div><p class="eyebrow">02 / NUESTRO TRABAJO</p><h2 id="work-title">Hecho aquí.<br />Hecho a medida.</h2></div><div><p>El metal, en todas sus formas.</p>{!all && <a class="text-link" href="/trabajos/">Explorar trabajos <span aria-hidden="true">↗</span></a>}</div></div>
-<p class="gallery-notice">Estamos preparando una selección de fotografías de nuestros trabajos.</p>
-<div class="project-grid">{items.map((project, i) => <figure class="project-card">{project.image ? <img src={project.image} alt={project.alt || project.title} width="800" height="650" loading="lazy" /> : <Placeholder variant={i} />}<figcaption><h3>{project.title}</h3><span class="project-index">/ 0{i + 1}</span></figcaption></figure>)}</div></div></section>
+<section class="work-section section" aria-labelledby="work-title"><div class="container"><div class="work-heading"><div><p class="eyebrow">02 / NUESTRO TRABAJO</p><h2 id="work-title">Hecho aquí.<br />Hecho a medida.</h2></div><div><p>El metal, en todas sus formas.</p>{!all && <a class="text-link" href={withBase('/trabajos/')}>Explorar trabajos <span aria-hidden="true">↗</span></a>}</div></div>
+<p class="gallery-notice">{hasConcepts ? 'Imágenes conceptuales generadas con IA. No representan trabajos realizados por Talleres Ibarrondo. Próximamente, fotografías de proyectos reales.' : 'Estamos preparando una selección de fotografías de nuestros trabajos.'}</p>
+<div class="project-grid">{items.map((project, i) => <figure class="project-card">{project.image ? <img src={withBase(project.image)} alt={project.alt || project.title} width="800" height="650" loading="lazy" /> : project.conceptImage ? <Image src={project.conceptImage} alt={project.conceptAlt || project.title} widths={[400, 640, 960]} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1416px) 30vw, 424px" format="webp" quality={80} loading="lazy" /> : <Placeholder variant={i} />}<figcaption><div><h3>{project.title}</h3>{!project.image && project.conceptImage && <small class="concept-label">Concepto IA · Imagen provisional</small>}</div><span class="project-index">/ 0{i + 1}</span></figcaption></figure>)}</div></div></section>

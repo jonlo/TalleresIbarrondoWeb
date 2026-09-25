@@ -1,5 +1,13 @@
 # PROJECT_CONTEXT.md
 
+## Current implementation decisions (2026-09-25)
+
+These updates supersede conflicting initial recommendations below:
+- Hosting is now GitHub Pages, repository `jonlo/TalleresIbarrondoWeb`, with automatic deployment from `main`.
+- The user explicitly approved temporary AI-generated concept images. Label these as illustrative AI concepts, never as real completed company work. Replace with verified photography when supplied.
+- Keep the existing logo placeholder until the original logo is available.
+
+
 ## Project
 **Talleres Ibarrondo — Website Renewal**
 

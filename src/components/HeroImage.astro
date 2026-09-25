@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import steel from '../assets/concepts/steel.png';
+---
+<figure class="hero-image">
+  <Image
+    src={steel}
+    alt="Concepto visual de perfiles de acero: imagen generada con IA, no una fotografía del taller."
+    widths={[480, 768, 1200]}
+    sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1416px) 45vw, 640px"
+    format="webp"
+    quality={82}
+    loading="eager"
+    fetchpriority="high"
+  />
+  <figcaption>ESTUDIO DE MATERIAL <span>Concepto generado con IA</span></figcaption>
+</figure>

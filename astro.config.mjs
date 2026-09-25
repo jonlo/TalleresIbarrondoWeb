@@ -1,3 +1,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-export default defineConfig({ site: 'https://talleresibarrondo.com', integrations: [sitemap()], output: 'static' });
+
+// Override both values when connecting the final company domain.
+export default defineConfig({
+  site: process.env.SITE_URL || 'https://jonlo.github.io',
+  base: process.env.BASE_PATH || '/TalleresIbarrondoWeb',
+  trailingSlash: 'always',
+  integrations: [sitemap()],
+  output: 'static',
+});
