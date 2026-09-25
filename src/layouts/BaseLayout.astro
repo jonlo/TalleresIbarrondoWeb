@@ -1,0 +1,15 @@
+---
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+interface Props { title: string; description: string; }
+const {title, description} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const schema = {'@context':'https://schema.org', '@type':'LocalBusiness', name:'Talleres Ibarrondo', url:Astro.site?.toString(), telephone:'+34946710059', address:{'@type':'PostalAddress',addressLocality:'Arrigorriaga',addressRegion:'Bizkaia',addressCountry:'ES'}};
+---
+<!doctype html><html lang="es"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>{title}</title><meta name="description" content={description} /><link rel="canonical" href={canonical} /><meta property="og:type" content="website" /><meta property="og:locale" content="es_ES" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta name="theme-color" content="#f1f0eb" /><script type="application/ld+json" set:html={JSON.stringify(schema)} /></head><body><a class="skip-link" href="#main">Saltar al contenido</a><Header /><main id="main"><slot /></main><Footer /></body></html>

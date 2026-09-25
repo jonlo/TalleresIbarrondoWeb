@@ -1,0 +1,10 @@
+---
+import { business } from '../data/business';
+const links = [['Servicios','/servicios/'],['Trabajos','/trabajos/'],['Empresa','/empresa/'],['Contacto','/contacto/']];
+---
+<header class="site-header"><div class="container header-inner">
+<a class="brand" href="/" aria-label="Talleres Ibarrondo, inicio">{business.logo ? <img src={business.logo} alt="Talleres Ibarrondo" width="190" height="48" /> : <span class="brand-text"><span>TALLERES</span><strong>IBARRONDO<span class="brand-period">.</span></strong></span>}</a>
+<nav class="desktop-nav" aria-label="Principal">{links.map(([label, href]) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>)}</nav>
+<a class="button header-cta" href="/contacto/">Solicitar presupuesto <span aria-hidden="true">↗</span></a>
+<details class="mobile-menu"><summary>Menú <span aria-hidden="true">＋</span></summary><nav aria-label="Principal móvil">{links.map(([label, href]) => <a href={href}>{label}</a>)}<a href="tel:+34946710059">Llamar al taller ↗</a></nav></details>
+</div></header>

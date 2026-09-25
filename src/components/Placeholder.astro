@@ -1,0 +1,9 @@
+---
+interface Props { variant?: number; hero?: boolean; }
+const {variant = 0, hero = false} = Astro.props;
+---
+<div class:list={['visual-placeholder', `pattern-${variant % 3}`, { 'hero-visual': hero }]} role="img" aria-label="Espacio reservado para una fotografía real del taller">
+<div class="visual-top"><span>TI / {hero ? 'ARRIGORRIAGA' : 'FABRICACIÓN A MEDIDA'}</span><span aria-hidden="true">＋</span></div>
+<div class="material-grid" aria-hidden="true"><span>Fe</span><small>26 / METAL</small></div>
+<div class="visual-bottom"><span>{hero ? 'OFICIO. MATERIA. FORMA.' : 'ARCHIVO DE TRABAJOS'}</span><span>Fotografía pendiente</span></div>
+</div>
