@@ -2,7 +2,6 @@
 import { Image, getImage } from 'astro:assets';
 import { withBase } from '../utils/paths';
 import { projects, categories } from '../data/projects';
-import Arrow from './Arrow.astro';
 const { all = false } = Astro.props;
 const items = all ? projects : projects.filter(project => project.featured);
 let photoIndex = 0;
@@ -22,7 +21,7 @@ const photos = cards.flatMap(card => card.entries);
   <div class="container">
     <div class="work-heading">
       <div><p class="eyebrow">02 / NUESTRO TRABAJO</p><h2 id="work-title">Hecho aquí.<br />Hecho a medida.</h2></div>
-      <div><p>Metal, espacios y soluciones reales.</p>{!all && <a class="text-link" href={withBase('/trabajos/')}>Todos los trabajos <Arrow /></a>}</div>
+      <div><p>Metal, espacios y soluciones reales.</p>{!all && <a class="text-link" href={withBase('/trabajos/')}>Todos los trabajos</a>}</div>
     </div>
     <p class="gallery-notice">Una selección de nuestros trabajos. Abre una fotografía para ver los detalles.</p>
     {all && <div class="gallery-filters" aria-label="Filtrar trabajos" hidden>
@@ -34,7 +33,6 @@ const photos = cards.flatMap(card => card.entries);
       {cards.map(({ project, start, entries }) => <figure class="project-card" data-category={project.category}>
         <a class="project-photo" href={entries[0].src} data-photo-index={start} aria-label={`Ampliar: ${project.title}`} style={`--photo-position:${project.position}; --photo-ratio:${project.image.width < project.image.height ? '4 / 5' : '4 / 3'}`}>
           <Image src={project.image} alt={project.alt} widths={[400, 640, 960].filter(width => width <= project.image.width)} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1416px) 30vw, 424px" format="webp" quality={82} loading="lazy" />
-          <span class="photo-expand"><Arrow /></span>
           {entries.length > 1 && <span class="photo-total">{entries.length} fotos</span>}
         </a>
         <figcaption><div><p class="project-category">{categories.find(category => category.id === project.category)?.label}</p><h3>{project.title}</h3></div></figcaption>
@@ -45,7 +43,7 @@ const photos = cards.flatMap(card => card.entries);
     <div class="lightbox-shell">
       <div class="lightbox-toolbar"><p data-photo-count aria-live="polite"></p><button type="button" data-close aria-label="Cerrar fotografía">Cerrar <span aria-hidden="true">×</span></button></div>
       <div class="lightbox-stage"><img data-full-photo alt="" /><p class="photo-error" hidden>No se ha podido cargar la fotografía. Prueba con la siguiente.</p></div>
-      <div class="lightbox-bottom"><div><h3 id="photo-title"></h3><p data-photo-description></p></div><div class="lightbox-controls"><button type="button" data-previous aria-label="Fotografía anterior">←</button><button type="button" data-next aria-label="Fotografía siguiente">→</button></div></div>
+      <div class="lightbox-bottom"><div><h3 id="photo-title"></h3><p data-photo-description></p></div><div class="lightbox-controls"><button type="button" data-previous>Anterior</button><button type="button" data-next>Siguiente</button></div></div>
     </div>
   </dialog>
   <script type="application/json" data-photos set:html={JSON.stringify(photos).replace(/</g, '\\u003c')} />

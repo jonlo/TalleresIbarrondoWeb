@@ -1,14 +1,13 @@
 ---
 import { withBase } from '../utils/paths';
 import { services } from '../data/services';
-import Arrow from './Arrow.astro';
 const { detailed = false } = Astro.props;
 ---
 <section class="section container" aria-labelledby="services-title">
   <div class="section-heading"><p class="eyebrow">01 / QUÉ HACEMOS</p><div><h2 id="services-title">Soluciones hechas<br />en metal.</h2><p class="section-intro">Desde una división interior hasta una estructura completa.<br />Un mismo oficio, muchas posibilidades.</p></div></div>
   <div class="service-list">
     {services.map(service => <a class="service-row" id={service.slug} href={withBase(detailed ? (service.category ? `/trabajos/#${service.category}` : '/contacto/') : `/servicios/#${service.slug}`)}>
-      <span class="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><Arrow class="row-arrow" />
+      <span class="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p>
     </a>)}
   </div>
   {detailed && <p class="services-help">Abre un servicio para ver ejemplos de trabajos o consultar tu proyecto.</p>}
