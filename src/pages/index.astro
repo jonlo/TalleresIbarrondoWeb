@@ -2,12 +2,13 @@
 import { withBase } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../components/HeroImage.astro';
+import Arrow from '../components/Arrow.astro';
 import Services from '../components/Services.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
 import About from '../components/About.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 ---
 <BaseLayout title="Talleres Ibarrondo · Metal a medida en Arrigorriaga" description="Herrería, calderería y fabricación metálica a medida en Arrigorriaga, Bizkaia. Soluciones para particulares, profesionales y empresas.">
-<section class="hero container"><div class="hero-copy"><p class="eyebrow">HERRERÍA · CALDERERÍA · FABRICACIÓN</p><h1>Metal<br />trabajado<br />para <span>durar.</span></h1><p class="hero-description">Fabricación, soldadura y soluciones metálicas a medida para particulares, profesionales y empresas.</p><div class="hero-actions"><a class="button" href={withBase('/contacto/')}>Solicitar presupuesto <span aria-hidden="true">↗</span></a><a class="text-link" href={withBase('/trabajos/')}>Ver trabajos <span aria-hidden="true">↗</span></a></div></div><HeroImage /><div class="hero-foot"><span>ARRIGORRIAGA, BIZKAIA</span><span>DEL TALLER A TU PROYECTO <span aria-hidden="true">↓</span></span></div></section>
+<section class="hero container"><div class="hero-copy"><p class="eyebrow">HERRERÍA · CALDERERÍA · FABRICACIÓN</p><h1>Metal<br />trabajado<br />para <span>durar.</span></h1><p class="hero-description">Fabricación, soldadura y soluciones metálicas a medida para particulares, profesionales y empresas.</p><div class="hero-actions"><a class="button" href={withBase('/contacto/')}>Solicitar presupuesto <Arrow /></a><a class="text-link" href={withBase('/trabajos/')}>Ver trabajos <Arrow /></a></div></div><HeroImage /><div class="hero-foot"><span>ARRIGORRIAGA, BIZKAIA</span><span>DEL TALLER A TU PROYECTO <span aria-hidden="true">↓</span></span></div></section>
 <Services /><ProjectGallery /><About /><ContactCTA />
 </BaseLayout>

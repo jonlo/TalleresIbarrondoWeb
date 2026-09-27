@@ -82,6 +82,14 @@ button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .lightbox-controls { display: flex; gap: 10px; flex-shrink: 0; }
 .lightbox-controls button { font-size: 1.4rem; }
 .photo-error { padding: 30px; }
+.arrow-icon { display: inline-block; width: 1em; height: 1em; flex: 0 0 auto; vertical-align: -.12em; }
+.button .arrow-icon { width: 1.15em; height: 1.15em; }
+.text-link .arrow-icon { width: 1.05em; height: 1.05em; }
+.row-arrow { width: 1.5rem; height: 1.5rem; }
+.contact-arrow .arrow-icon { display: block; width: 1em; height: 1em; }
+.contact-bottom > a .arrow-icon { margin-left: 30px; }
+.phone-large .arrow-icon { width: .8em; height: .8em; margin-left: .12em; }
+.mobile-menu nav a .arrow-icon { width: .9em; height: .9em; margin-left: 14px; }
 @media (max-width: 1050px) { .project-grid-full { columns: 2; } }
 @media (max-width: 760px) {
   .project-grid-full { columns: 1; }
